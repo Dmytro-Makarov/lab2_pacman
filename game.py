@@ -823,6 +823,7 @@ class Ghost:
             elif dx < 0:
                 newDir = dirs[3]
         else:
+            print("ERROR: BACKTRACKED TO BFS")
             random.shuffle(dirs)
             for newDir in dirs:
                 if self.calcDistance(self.target, [self.row + newDir[1], self.col + newDir[2]]) < best:
@@ -847,6 +848,7 @@ class Ghost:
 
 
         if newDir != []:
+            print("NOTICE: SEARCH ALGORITHM WORKED!")
             if self.calcDistance(self.target, [self.row + newDir[1], self.col + newDir[2]]) < best:
                 if not (self.lastLoc[0] == self.row + newDir[1] and self.lastLoc[1] == self.col + newDir[2]):
                     if newDir[0] == 0 and self.col % 1.0 == 0:
